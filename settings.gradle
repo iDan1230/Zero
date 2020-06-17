@@ -1,0 +1,2 @@
+include ':app', ':module_public', ':module_movie', ':module_sport', ':module_books', ':module_music'
+rootProject.name='iDan'

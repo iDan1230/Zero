@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">iDan</string>
+
+    <string name="main_music">music</string>
+    <string name="main_books">books</string>
+    <string name="main_movie">movie</string>
+    <string name="main_sports">sports</string>
+</resources>
