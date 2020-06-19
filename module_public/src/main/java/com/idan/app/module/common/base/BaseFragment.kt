@@ -8,12 +8,18 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment : Fragment() {
 
+    internal var tView: View? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var tView: View = inflater.inflate(layoutId(), container)
+        if (tView === null) {
+            tView = inflater.inflate(layoutId(), container)
+        }
+        tView.let {
+            (it as ViewGroup).removeView(tView)
+        }
         return tView
     }
 
@@ -23,6 +29,8 @@ abstract class BaseFragment : Fragment() {
     }
 
     abstract fun layoutId(): Int
+
+    open fun initView() {}
 
     abstract fun initData()
 

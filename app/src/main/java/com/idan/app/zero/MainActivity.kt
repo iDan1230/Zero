@@ -1,5 +1,6 @@
 package com.idan.app.zero
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,20 +11,23 @@ import com.idan.app.module.movie.MovieFragment
 import com.idan.app.module.music.MusicFragment
 import com.idan.app.module.sports.SportFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import android.view.WindowManager
+import android.os.Build
+import android.view.View
+import com.idan.app.module.common.base.BaseActivity
+
 
 /**
  * createUser : Administrator
  * createDate : 2020/6/17
  * remark     :
  */
-class MainActivity : AppCompatActivity() {
-
+class MainActivity : BaseActivity() {
     var tFragments: ArrayList<Fragment> = ArrayList()
     var tabPosition = 0
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        supportActionBar?.hide()
+    override fun layoutResId(): Int = R.layout.activity_main
+
+    override fun initData() {
         tFragments.add(MovieFragment())
         tFragments.add(SportFragment())
         tFragments.add(MusicFragment())
@@ -45,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         vp.setCurrentItem(position, Math.abs(position - tabPosition) <= 1)
         tabPosition = position
     }
+
 }
 
 
