@@ -24,16 +24,12 @@ class MovieListActivity : BaseActivity() {
             ct.startActivity(Intent(ct,MovieListActivity::class.java))
         }
     }
+
+    override var hideStatus: Boolean = false
+
     val datas:ArrayList<Movie> = ArrayList()
 
-    override fun setTranslucentStatus() {
-        hideStatus = false
-        super.setTranslucentStatus()
-    }
-
     override fun layoutResId(): Int = R.layout.movie_activity_movie_list_layout
-
-
 
     override fun initData() {
         for (i in 1..100){
@@ -41,6 +37,10 @@ class MovieListActivity : BaseActivity() {
         }
         recycler.layoutManager = GridLayoutManager(this,3)
         recycler.adapter = MovieListAdapter(datas)
+
+        toolbar.setNavigationOnClickListener {
+            finish()
+        }
     }
 }
 

@@ -1,5 +1,6 @@
 package com.idan.app.zero
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.view.WindowManager
 import android.os.Build
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.idan.app.module.common.base.BaseActivity
 
 
@@ -25,8 +27,9 @@ import com.idan.app.module.common.base.BaseActivity
 class MainActivity : BaseActivity() {
     var tFragments: ArrayList<Fragment> = ArrayList()
     var tabPosition = 0
+//    override var statusMainColor: Boolean = true
+    override var hideStatus: Boolean = false
     override fun layoutResId(): Int = R.layout.activity_main
-
     override fun initData() {
         tFragments.add(MovieFragment())
         tFragments.add(SportFragment())

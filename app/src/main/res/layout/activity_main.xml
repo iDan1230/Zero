@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
+    android:background="@color/c_f8f9fc"
     tools:context=".MainActivity">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@color/colorAccent"
         app:layout_constraintBottom_toTopOf="@id/nv_main"
         app:layout_constraintTop_toTopOf="parent" />
 

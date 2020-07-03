@@ -1,17 +1,19 @@
 package com.idan.app.module.movie
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.idan.app.module.common.base.BaseFragment
+import com.idan.app.module.common.base.TitleHolder
+import com.idan.app.module.common.base.ViewHolder
 import com.idan.app.module.movie.bean.Movie
 import com.idan.app.module.movie.detail.MovieDetailActivity
 import com.idan.app.module.movie.list.MovieListActivity
 import kotlinx.android.synthetic.main.item_main_list_layout.view.*
-import kotlinx.android.synthetic.main.item_main_title_layout.view.*
 import kotlinx.android.synthetic.main.item_main_vp_layout.view.*
+import kotlinx.android.synthetic.main.item_movie_title_layout.view.*
+
 import kotlinx.android.synthetic.main.movie_fragment_movie_layout.*
 import java.util.ArrayList
 
@@ -73,7 +75,7 @@ class ContentAdapter(var datas: ArrayList<Movie>) :
         when (viewType) {
             1 -> TitleHolder(
                 LayoutInflater.from(parent.context).inflate(
-                    R.layout.item_main_title_layout,
+                    R.layout.item_movie_title_layout,
                     parent,
                     false
                 )
@@ -98,7 +100,6 @@ class ContentAdapter(var datas: ArrayList<Movie>) :
 
     fun bindTitle(holder: TitleHolder, position: Int) {
         holder.itemView.tvTitle.text = datas[position].title
-
         holder.itemView.tvMore.setOnClickListener {
             MovieListActivity.startAction(it.context)
         }
@@ -112,8 +113,3 @@ class ContentAdapter(var datas: ArrayList<Movie>) :
         }
     }
 }
-
-
-class TitleHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
-
-class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
